@@ -1,0 +1,8 @@
+.textTrim {
+	text-box: trim-both cap alphabetic;
+}
+
+.prose {
+	max-width: 65ch;
+	line-height: 160%;
+}

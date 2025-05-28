@@ -1,0 +1,53 @@
+.btn {
+	border-radius: var(--border-radius-2);
+	height: 56px;
+	font-family: var(--font-fancy);
+	font-size: var(--step-2);
+	text-transform: uppercase;
+	display: flex;
+	align-items: center;
+	padding-inline: var(--space-l);
+	gap: var(--space-s);
+	transition: var(--transition-bounce);
+	color: var(--black);
+}
+
+@media (min-width: 992px) {
+	.btn {
+		height: 72px;
+	}
+}
+
+.btn p {
+	text-box: trim-both cap alphabetic;
+}
+
+.btn:hover {
+	--primary-500: var(--primary-600);
+}
+
+.btn:active {
+	--primary-500: var(--primary-400);
+}
+
+.dot-pattern {
+	background: transparent;
+	--gap: var(--space-l);
+	--line: 1px;
+	--color: var(--background-900);
+
+	background-image:
+		linear-gradient(
+			-90deg,
+			transparent calc(var(--gap) - var(--line)),
+			var(--color) calc(var(--gap) - var(--line) + 1px),
+			var(--color) var(--gap)
+		),
+		linear-gradient(
+			0deg,
+			transparent calc(var(--gap) - var(--line)),
+			var(--color) calc(var(--gap) - var(--line) + 1px),
+			var(--color) var(--gap)
+		);
+	background-size: var(--gap) var(--gap);
+}
