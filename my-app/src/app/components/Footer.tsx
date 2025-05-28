@@ -117,7 +117,7 @@ export default function Footer() {
         {/* Bottom copyright */}
         <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-600 text-sm">
-            &copy; {currentYear} AppName. All rights reserved.
+            &copy; {currentYear} AstroArc. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <Link href="#" className="text-gray-600 hover:text-blue-600 text-sm">
