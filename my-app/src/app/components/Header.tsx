@@ -18,7 +18,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <div className="bg-gradient-to-r from-blue-500 to-purple-600 w-10 h-10 rounded-lg"></div>
-            <span className="ml-3 text-xl font-bold text-gray-900">AppName</span>
+            <span className="ml-3 text-xl font-bold text-gray-900">AstroArc</span>
           </div>
 
           {/* Desktop Navigation */}
