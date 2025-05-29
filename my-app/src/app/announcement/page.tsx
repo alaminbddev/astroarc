@@ -1,9 +1,16 @@
-'use client'
+'use client';
 import Head from "next/head";
 import { useState } from "react";
 
+interface Announcement {
+  id: number;
+  title: string;
+  content: string;
+  timestamp: string;
+}
+
 export default function AnnouncementMessenger() {
-  const [announcements, setAnnouncements] = useState([
+  const [announcements, setAnnouncements] = useState<Announcement[]>([
     {
       id: 1,
       title: "Team Meeting",
@@ -18,12 +25,15 @@ export default function AnnouncementMessenger() {
     },
   ]);
 
-  const [newAnnouncement, setNewAnnouncement] = useState({
+  const [newAnnouncement, setNewAnnouncement] = useState<{
+    title: string;
+    content: string;
+  }>({
     title: "",
     content: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newId = announcements.length + 1;
     const timestamp = new Date().toLocaleString();
@@ -42,12 +52,12 @@ export default function AnnouncementMessenger() {
       </Head>
 
       <div className="max-w-4xl mx-auto p-6">
-        
+        {/* Header */}
         <h1 className="text-3xl font-bold text-gray-900 mb-6">
           Announcements
         </h1>
 
-        
+        {/* Announcement Form */}
         <div className="bg-white p-6 rounded-lg shadow-md mb-6">
           <h2 className="text-lg font-semibold text-gray-800 mb-4">
             Post a New Announcement
@@ -66,7 +76,10 @@ export default function AnnouncementMessenger() {
                 type="text"
                 value={newAnnouncement.title}
                 onChange={(e) =>
-                  setNewAnnouncement({ ...newAnnouncement, title: e.target.value })
+                  setNewAnnouncement({
+                    ...newAnnouncement,
+                    title: e.target.value,
+                  })
                 }
                 required
                 className="w-full px-3 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -91,7 +104,7 @@ export default function AnnouncementMessenger() {
                   })
                 }
                 required
-                rows="4"
+                rows={4}
                 className="w-full px-3 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter announcement details"
               />
@@ -105,7 +118,7 @@ export default function AnnouncementMessenger() {
           </form>
         </div>
 
-        
+        {/* Announcement List */}
         <div className="space-y-4">
           {announcements.length === 0 ? (
             <p className="text-gray-600 text-center">No announcements yet.</p>
